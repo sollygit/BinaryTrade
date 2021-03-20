@@ -7,6 +7,7 @@ import { TradeService } from '../services/trade.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  logo = require('../../assets/images/logo.png');
   constructor(private tradeService: TradeService) { }
 
   public get TotalAmount() { return this.tradeService.TotalAmount; }

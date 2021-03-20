@@ -1,6 +1,9 @@
-<div align="right">
-  <h5 class="center">Total amount of all trades: {{ TotalAmount | currency }}</h5>
-  <button type="button" class="btn btn-success" [routerLink]="['/trades/new']">
-    <i class="fa fa-plus"></i> New Trade
-  </button>
+<div align="center">
+  <h5 class="amount">
+    <img [src]="logo" class="logo" alt="logo">
+    <span class="total">Total amount of all trades: {{ TotalAmount | currency }}</span>
+    <button type="button" class="btn btn-success" [routerLink]="['/trades/new']">
+      <i class="fa fa-plus"></i> New Trade
+    </button>
+  </h5>
 </div>
