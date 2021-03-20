@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="29.0.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryTrade.Common\BinaryTrade.Common.csproj" />
+    <ProjectReference Include="..\BinaryTrade.Model\BinaryTrade.Model.csproj" />
+  </ItemGroup>
+
+</Project>

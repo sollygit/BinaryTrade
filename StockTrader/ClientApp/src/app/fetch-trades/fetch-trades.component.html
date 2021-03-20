@@ -1,0 +1,28 @@
+<h1 id="tableLabel">Trades</h1>
+
+<p *ngIf="!trades"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="trades">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Asset</th>
+      <th>Expiration</th>
+      <th>Amount</th>
+      <th>Direction</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trade of trades">
+      <td><a [routerLink]="['/trades', trade.id]" href="javascript:;" class="vertical-mid">{{ trade.id }}</a></td>
+      <td>{{ trade.asset.name }}</td>
+      <td>{{ trade.expiration }}</td>
+      <td>{{ trade.amount | currency }}</td>
+      <td>{{ trade.direction }}</td>
+      <td>
+        <button (click)="deleteTrade(trade.id, $event); false" class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete"><i class="fa fa-plus"></i>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

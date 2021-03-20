@@ -1,0 +1,39 @@
+<h1 id="tableLabel">Reports</h1>
+
+<input type="button" (click)="showMostUsed(true)" value="Most Used Assets" />&nbsp;-
+<input type="button" (click)="showMostUsed(false)" value="Long vs. Short" />
+
+<div *ngIf="mostUsedReport">
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="MostUsedAssets">
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Used</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of MostUsedAssets">
+        <td>{{ asset.asset }}</td>
+        <td>{{ asset.used }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Total Trades:</td>
+        <td>{{ TotalCount }}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <p>
+    {{ result | json }}
+  </p>
+
+</div>
+
+<div *ngIf="!mostUsedReport">
+  Long vs. Short
+</div>
+
+
+

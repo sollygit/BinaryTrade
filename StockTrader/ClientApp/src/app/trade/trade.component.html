@@ -1,0 +1,47 @@
+<div class="container">
+  <header class="pageHeader">
+    <h1>New Trade</h1>
+  </header>
+  <div>
+    <form #tradeForm="ngForm">
+      <div class="form-group">
+        <label for="name">Amount</label>
+        <input id="amount" type="number" class="form-control" required placeholder="Amount"
+               [(ngModel)]="binaryTrade.amount" name="amount" #amount="ngModel">
+        <div [hidden]="amount.valid || amount.pristine" class="alert alert-danger">
+          Amount is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Expiration</label>
+        <input id="expiration" type="number" class="form-control" required placeholder="Expiration"
+               [(ngModel)]="binaryTrade.expiration" name="expiration" #expiration="ngModel">
+        <div [hidden]="expiration.valid || expiration.pristine" class="alert alert-danger">
+          Expiration is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Payout</label>
+        <input id="payout" type="number" class="form-control" required placeholder="Payout"
+               [(ngModel)]="binaryTrade.payout" name="payout" #payout="ngModel">
+        <div [hidden]="payout.valid || payout.pristine" class="alert alert-danger">
+          Payout is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Direction</label>
+        <input id="direction" type="number" class="form-control" required placeholder="Direction" min="1" max="2" pattern="[0-1]{1}"
+               [(ngModel)]="binaryTrade.direction" name="direction" #direction="ngModel">
+        <div [hidden]="direction.valid || direction.pristine" class="alert alert-danger">
+          Direction is required. 0 or 1 only.
+        </div>
+      </div>
+
+      <div ngPreserveWhitespaces class="form-group pull-right">
+        <button type="reset" class="btn btn-default" [routerLink]="['/trades']">Cancel</button>
+        <button [disabled]="!tradeForm.form.valid" class="btn btn-default btn-success" style="width:75px;" *ngIf="isNew" (click)="addTrade()"><i class='fa fa-save'></i> Save</button>
+        <button [disabled]="!tradeForm.form.valid" class="btn btn-success" style="width:75px;" *ngIf="!isNew" (click)="updateTrade()"><i class='fa fa-save'></i> Update</button>
+      </div>
+    </form>
+  </div>
+</div>
