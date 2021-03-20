@@ -28,12 +28,18 @@ export class FetchTradesComponent implements OnInit {
         });
   }
 
-  deleteTrade(id: string, event: any) {
+  deleteTrade(id: string) {
     this.tradeService.delete(id)
       .subscribe(() => {
         this.getTrades();
       });
-    event.stopPropagation();
+  }
+
+  autoTrade() {
+    this.tradeService.generate()
+      .subscribe(() => {
+        this.getTrades();
+      });
   }
 
 }

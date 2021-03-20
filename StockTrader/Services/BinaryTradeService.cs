@@ -16,6 +16,7 @@ namespace BinaryTrade.Services
         Task<AssetTrade> SaveAsync(AssetTradeViewModel entity);
         Task<AssetTrade> UpdateAsync(Guid id, AssetTradeViewModel entity);
         Task<AssetTrade> DeleteAsync(Guid id);
+        Task<AssetTrade> GenerateAsync();
     }
 
     public class BinaryTradeService : IBinaryTradeService
@@ -53,6 +54,12 @@ namespace BinaryTrade.Services
         public async Task<AssetTrade> DeleteAsync(Guid id)
         {
             return await repository.DeleteAsync(id);
+        }
+
+        public async Task<AssetTrade> GenerateAsync()
+        {
+            var fakeTrade = await repository.GenerateAsync();
+            return await repository.SaveAsync(fakeTrade);
         }
     }
 }

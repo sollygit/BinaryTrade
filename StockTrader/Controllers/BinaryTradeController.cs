@@ -38,6 +38,13 @@ namespace BinaryTrade.Controllers
             return new ObjectResult(item);
         }
 
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Generate()
+        {
+            var item = await service.GenerateAsync();
+            return CreatedAtAction("Generate", new { id = item.Id }, item);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(AssetTradeViewModel trade)
         {

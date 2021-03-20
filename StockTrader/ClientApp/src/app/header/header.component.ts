@@ -10,4 +10,5 @@ export class HeaderComponent {
   constructor(private tradeService: TradeService) { }
 
   public get TotalAmount() { return this.tradeService.TotalAmount; }
+
 }

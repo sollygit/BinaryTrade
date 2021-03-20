@@ -13,6 +13,8 @@ namespace BinaryTrade.Repository
         Task<AssetTrade> SaveAsync(AssetTrade entity);
         Task<AssetTrade> UpdateAsync(Guid id, AssetTrade entity);
         Task<AssetTrade> DeleteAsync(Guid id);
+        Task<AssetTrade> GenerateAsync();
+
         List<CurrencyPair> CurrencyPairList();
     }
 
@@ -63,6 +65,12 @@ namespace BinaryTrade.Repository
             var item = Trades.Single(o => o.Id == id.ToString());
             var entry = Trades.Remove(item);
             return await Task.FromResult(item);
+        }
+
+        public async Task<AssetTrade> GenerateAsync()
+        {
+            var randomTrade = MockUtil.Trades(1).FirstOrDefault();
+            return await Task.FromResult(randomTrade);
         }
 
         public List<CurrencyPair> CurrencyPairList()

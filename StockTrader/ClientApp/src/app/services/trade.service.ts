@@ -84,6 +84,16 @@ export class TradeService {
     }));
   }
 
+  public generate() {
+    const url = `${this.tradesUrl}/generate`;
+    const result = this.http.get<BinaryTrade>(url);
+    return result.pipe(map(response => {
+      if (response === null)
+        throw new Error("Something went wrong");
+      return response;
+    }));
+  }
+
   public get AssetList() { return this._assetList; }
 
   public get TotalAmount() { return this.totalAmount; }

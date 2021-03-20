@@ -10,7 +10,7 @@
       <th>Expiration</th>
       <th>Amount</th>
       <th>Direction</th>
-      <th>&nbsp;</th>
+      <th><button (click)="autoTrade()" class="btn btn-info" data-title="Auto Trade"><i class="fa fa-plus"></i>Auto Trader</button></th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +21,7 @@
       <td>{{ trade.amount | currency }}</td>
       <td>{{ trade.direction }}</td>
       <td>
-        <button (click)="deleteTrade(trade.id, $event); false" class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete"><i class="fa fa-plus"></i>Delete</button>
+        <button (click)="deleteTrade(trade.id)" class="btn btn-danger" data-title="Delete" data-toggle="modal" data-target="#delete"><i class="fa fa-plus"></i>Delete</button>
       </td>
     </tr>
   </tbody>
