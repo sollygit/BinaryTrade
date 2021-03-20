@@ -19,15 +19,37 @@
     </tbody>
     <tfoot>
       <tr>
-        <td>Total Trades:</td>
-        <td>{{ TotalCount }}</td>
+        <td>Total:</td>
+        <td>{{ TotalUsed }}</td>
       </tr>
     </tfoot>
   </table>
 </div>
 
 <div *ngIf="!mostUsedReport">
-  Long vs. Short
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="ShortLongAssets">
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Short</th>
+        <th>Long</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of ShortLongAssets">
+        <td>{{ asset.asset }}</td>
+        <td>{{ asset.short }}</td>
+        <td>{{ asset.long }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Total:</td>
+        <td>{{ TotalShort }}</td>
+        <td>{{ TotalLong }}</td>
+      </tr>
+    </tfoot>
+  </table>
 </div>
 
 

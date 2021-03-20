@@ -15,7 +15,6 @@ export class TradeService {
   private readonly assetsUrl: string = this.configurations.baseUrl + this._getAssets;
 
   private totalAmount = 0;
-  private totalCount = 0;
   
   constructor(private http: HttpClient, private configurations: ConfigurationService) { }
   
@@ -27,7 +26,6 @@ export class TradeService {
       this.totalAmount = trades.reduce(function (prev, cur) {
         return prev + (cur.amount);
       }, 0);
-      this.totalCount = trades.length;
       return trades;
     }));
   }
@@ -89,7 +87,5 @@ export class TradeService {
   public get AssetList() { return this._assetList; }
 
   public get TotalAmount() { return this.totalAmount; }
-
-  public get TotalCount() { return this.totalCount; }
 
 }
