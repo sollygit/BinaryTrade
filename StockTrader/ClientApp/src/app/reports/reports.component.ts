@@ -7,41 +7,32 @@ import { TradeService } from '../services/trade.service';
   templateUrl: './reports.component.html'
 })
 export class ReportsComponent implements OnInit {
+  readonly assetList = this.tradeService.AssetList;
   trades: BinaryTrade[];
   mostUsedReport = true;
   mostUsedAssets = [];
-  result = [];
 
   constructor(private tradeService: TradeService) { }
 
   ngOnInit() {
-    this.getTrades();
+    this.getMostUsedAssets();
   }
 
-  getTrades() {
+  getMostUsedAssets() {
     this.tradeService.getAll()
       .subscribe(trades => {
         this.trades = trades;
-
-        this.mostUsedAssets.push({ asset: 'EUR/USD', used: this.trades.filter(t => t.asset.id === 1).map(o => o).length });
-        this.mostUsedAssets.push({ asset: 'JPY/USD', used: this.trades.filter(t => t.asset.id === 2).map(o => o).length });
-        this.mostUsedAssets.push({ asset: 'GBP/USD', used: this.trades.filter(t => t.asset.id === 3).map(o => o).length });
-
-        this.result = this.mostUsedAssets.reduce(function (r, a) {
-          r[a.used] = r[a.used] || [];
-          r[a.used].push(a);
-          return r;
-        }, Object.create(null));
-
+        for (let i = 0; i < this.assetList.length; i++) {
+          const assetName = this.assetList[i].name;
+          const used = this.trades.filter(t => t.asset.name === assetName).map(o => o).length;
+          this.mostUsedAssets.push({ asset: assetName, used: used });
+        }
+        this.mostUsedAssets.sort((a, b) => (a.used > b.used ? -1 : 1));
       },
         error => {
           console.log(error);
           this.trades = null;
         });
-  }
-
-  getMostUsedAssets() {
-    
   }
 
   showMostUsed(show: boolean): void {

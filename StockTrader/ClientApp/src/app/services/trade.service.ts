@@ -7,6 +7,7 @@ import { ConfigurationService } from './configuration.service';
 
 @Injectable()
 export class TradeService {
+  private readonly _assetList = [{ id: 1, name: 'EUR/USD' }, { id: 2, name: 'JPY/USD' }, { id: 3, name: 'GBP/USD' }];
   private readonly _getAll: string = '/binaryTrade';
   private readonly _getAssets: string = '/assets';
   
@@ -84,6 +85,8 @@ export class TradeService {
       return response;
     }));
   }
+
+  public get AssetList() { return this._assetList; }
 
   public get TotalAmount() { return this.totalAmount; }
 
