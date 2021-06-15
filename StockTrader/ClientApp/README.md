@@ -2,7 +2,7 @@ Set yourself a time limit and stick to it. We do not expect everyone to complete
 
 Please make sure the project builds and runs before you start. If you have any issues please post in the teams chat.
 
-List of your tasks to complete:
+List of tasks to complete:
 1.Restructure the code into more logical parts (think models, controllers, services, etc)
 
 2.Add functionality for a user to create a new trade. This should include a new angular component and a new API endpoint
