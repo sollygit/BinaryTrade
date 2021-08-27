@@ -9,7 +9,7 @@ import { ConfigurationService } from './configuration.service';
 export class TradeService {
   private readonly _assetList = [{ id: 1, name: 'EUR/USD' }, { id: 2, name: 'JPY/USD' }, { id: 3, name: 'GBP/USD' }];
   private readonly _getAll: string = '/binaryTrade';
-  private readonly _getAssets: string = '/assets';
+  private readonly _getAssets: string = '/binaryTrade/assets';
   
   private readonly tradesUrl: string = this.configurations.baseUrl + this._getAll;
   private readonly assetsUrl: string = this.configurations.baseUrl + this._getAssets;
@@ -86,7 +86,8 @@ export class TradeService {
 
   public generate() {
     const url = `${this.tradesUrl}/generate`;
-    const result = this.http.get<BinaryTrade>(url);
+    const header = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const result = this.http.post<BinaryTrade>(url, null, { headers: header });
     return result.pipe(map(response => {
       if (response === null)
         throw new Error("Something went wrong");

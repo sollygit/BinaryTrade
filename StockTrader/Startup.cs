@@ -44,7 +44,6 @@ namespace BinaryTrade
             services.AddSingleton(provider => settings.Get<TradeSettings>());
             services.AddScoped<IBinaryTradeRepository, BinaryTradeRepository>();
             services.AddScoped<IBinaryTradeService, BinaryTradeService>();
-            services.AddScoped<IPayoutService, PayoutService>();
             services.AddScoped<IAssetService, AssetService>();
             services.AddControllersWithViews();
             services.AddSwaggerGen(c =>

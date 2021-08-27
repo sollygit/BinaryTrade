@@ -9,13 +9,5 @@ namespace BinaryTrade.Common
             new KeyValuePair<int, string>(1, "UP"),
     		new KeyValuePair<int, string>(2, "DOWN")
         };
-
-        public static readonly List<KeyValuePair<int, string>> EXPIRIES = new List<KeyValuePair<int, string>>
-        {
-            new KeyValuePair<int, string> ( 1, "1 Hour"),
-            new KeyValuePair<int, string> ( 2, "6 Hours"),
-            new KeyValuePair<int, string> ( 3, "12 Hours"),
-            new KeyValuePair<int, string> ( 4, "24 Hours")
-        };
     }
 }
