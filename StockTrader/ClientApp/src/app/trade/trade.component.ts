@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Asset } from '../models/asset.type';
-import { BinaryTrade } from '../models/binaryTrade.type';
+import { BinaryTrade } from '../models/binary-trade.type';
 import { TradeService } from '../services/trade.service';
 
 @Component({

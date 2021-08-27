@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BinaryTrade } from '../models/binaryTrade.type';
+import { BinaryTrade } from '../models/binary-trade.type';
 import { TradeService } from '../services/trade.service';
 
 @Component({

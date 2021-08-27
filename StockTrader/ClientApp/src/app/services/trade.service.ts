@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Asset } from '../models/asset.type';
-import { BinaryTrade } from '../models/binaryTrade.type';
+import { BinaryTrade } from '../models/binary-trade.type';
 import { ConfigurationService } from './configuration.service';
 
 @Injectable()
