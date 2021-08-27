@@ -19,7 +19,7 @@
       <td>{{ trade.asset.name }}</td>
       <td>{{ trade.expiration }}</td>
       <td>{{ trade.amount | currency }}</td>
-      <td>{{ trade.direction }}</td>
+      <td>{{ trade.direction | boolean }}</td>
       <td>
         <button (click)="deleteTrade(trade.id)" class="btn btn-danger" data-title="Delete" style="width:90px;"><i class="fa fa-plus"></i>Delete</button>
       </td>
